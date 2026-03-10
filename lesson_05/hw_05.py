@@ -52,10 +52,10 @@ print(is_triangle(3, 4, 5))
 Такой вызова функции average(1, 2, 3, 4, 5, 6, 7, 8) должен вернуть 4.5
 """
 
-def average(*args):
-    if len(args) == 0:
+def average(*numbers):
+    if len(numbers) == 0:
         return 0
-    return sum(args) / len(args)
+    return sum(numbers) / len(numbers)
 
 print(average(1, 2, 3, 4, 5, 6, 7, 8))
 
@@ -79,14 +79,18 @@ fruits_2 = [‘Mango’, ‘apple’, ‘orange’, ‘cherry’]
 def common_strings(list1, list2, ignore_case=True):
     result = []
 
-    for x in list1:
-        for y in list2:
-            if ignore_case:
-                if x.lower() == y.lower() and x.lower() not in result:
-                    result.append(x.lower())
-            else:
-                if x==y and x.lower() not in result:
-                    result.append(x.lower())
+    if ignore_case:
+        second_list_lower = [item.lower() for item in list2]
+
+        for item in list1:
+            item_lower = item.lower()
+            if item_lower in second_list_lower and item_lower not in result:
+                result.append(item_lower)
+    else:
+        for item in list1:
+            if item in list2 and item.lower() not in result:
+                result.append(item.lower())
+
     return result
 fruits_1 = ['banana', 'APPLE', 'watermelon', 'cherry']
 fruits_2 = ['Mango', 'apple', 'orange', 'cherry']
@@ -111,7 +115,7 @@ text = input()
 result = []
 
 for x in range(len(text)):
-    if x%2 == 0:
+    if x % 2 == 0:
         result.append(text[x].upper())
     else:
         result.append(text[x].lower())
