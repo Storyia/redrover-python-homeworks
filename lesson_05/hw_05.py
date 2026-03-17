@@ -20,7 +20,7 @@ def sum_ignore_non_numbers(items):
             total += x
     return total
 
-print(sum_ignore_non_numbers([1, 2, 'Hey', None, 4.3]))
+# print(sum_ignore_non_numbers([1, 2, 'Hey', None, 4.3]))
 
 
 """
@@ -36,8 +36,8 @@ print(sum_ignore_non_numbers([1, 2, 'Hey', None, 4.3]))
 def is_triangle(a, b, c):
     return a + b > c and a + c > b and b + c > a
 
-print(is_triangle(2, 4, 9))
-print(is_triangle(3, 4, 5))
+# print(is_triangle(2, 4, 9))
+# print(is_triangle(3, 4, 5))
 
 
 """
@@ -57,7 +57,7 @@ def average(*numbers):
         return 0
     return sum(numbers) / len(numbers)
 
-print(average(1, 2, 3, 4, 5, 6, 7, 8))
+# print(average(1, 2, 3, 4, 5, 6, 7, 8))
 
 
 """
@@ -92,10 +92,10 @@ def common_strings(list1, list2, ignore_case=True):
                 result.append(item.lower())
 
     return result
-fruits_1 = ['banana', 'APPLE', 'watermelon', 'cherry']
-fruits_2 = ['Mango', 'apple', 'orange', 'cherry']
+# fruits_1 = ['banana', 'APPLE', 'watermelon', 'cherry']
+# fruits_2 = ['Mango', 'apple', 'orange', 'cherry']
 
-print(common_strings(fruits_1, fruits_2))
+# print(common_strings(fruits_1, fruits_2))
 
 
 """
@@ -111,12 +111,13 @@ print(common_strings(fruits_1, fruits_2))
 нУжНо сНаЧаЛа кУпИтЬ ЧтО-НиБуДь нЕнУжНоЕ, а у нАс дЕнЕг нЕт.”
 """
 
-text = input()
-result = []
+def wave_text(text):
+    result = []
 
-for x in range(len(text)):
-    if x % 2 == 0:
-        result.append(text[x].upper())
-    else:
-        result.append(text[x].lower())
-print("".join(result))
+    for x in range(len(text)):
+        if x % 2 == 0:
+            result.append(text[x].upper())
+        else:
+            result.append(text[x].lower())
+
+    return "".join(result)
